@@ -2,7 +2,11 @@
 
 require 'osx-copy-tags'
 
-if ARGV
-	
+if ARGV.count != 2
+	puts "You haven't given the correct argument number!".red
+	puts "".red
+	puts "Usage:".red
+	puts "copy-tags /path/to/source/folder /path/to/target/folder".red
+else
 	CopyTags::Command.run(ARGV)
 end
