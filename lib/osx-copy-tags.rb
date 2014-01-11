@@ -11,7 +11,7 @@ module CopyTags
 		def self.run
 			puts 'program started'
 
-			Copier.new('~/Documents','~/Dropbox').copy_tags
+			#CopyTags::Copier.new('~/Documents','~/Dropbox').copy_tags
 		end
 	end
 end
