@@ -1,6 +1,7 @@
 #entrence point for command line tool
 
 require 'osx-copy-tags/copy_tags'
+require 'colored'
 
 module CopyTags
 	class Command

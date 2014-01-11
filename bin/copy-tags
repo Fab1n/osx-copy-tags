@@ -3,5 +3,6 @@
 require 'osx-copy-tags'
 
 if ARGV
+	
 	CopyTags::Command.run(ARGV)
 end
