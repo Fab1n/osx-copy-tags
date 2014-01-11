@@ -1,11 +1,11 @@
 # coding: utf-8
 lib = File.expand_path('../lib', __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-require 'osx/copy/tags/version'
+require 'osx-copy-tags/version'
 
 Gem::Specification.new do |spec|
   spec.name          = "osx-copy-tags"
-  spec.version       = Osx::Copy::Tags::VERSION
+  spec.version       = OsxCopyTags::VERSION
   spec.authors       = ["Fabian Renner"]
   spec.email         = ["rennerfabian@icloud.com"]
   spec.summary       = "Copying tags from files of one to another folder"

@@ -1,0 +1,5 @@
+#!/usr/bin/env ruby
+
+require 'osx-copy-tags'
+
+CopyTags::Command.run(ARGV)

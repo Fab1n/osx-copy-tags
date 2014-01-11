@@ -1,9 +1,17 @@
-require "osx/copy/tags/version"
+#entrence point for command line tool
 
-module Osx
-  module Copy
-    module Tags
-      # Your code goes here...
-    end
-  end
+require 'osx-copy-tags/copy_tags'
+
+module CopyTags
+	class Command
+		def initialize(argv)
+			puts argv
+		end
+
+		def self.run
+			puts 'program started'
+
+			Copier.new('~/Documents','~/Dropbox').copy_tags
+		end
+	end
 end
