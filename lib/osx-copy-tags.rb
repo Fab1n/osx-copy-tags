@@ -8,10 +8,11 @@ module CopyTags
 			puts argv
 		end
 
-		def self.run
+		def self.run(argv)
 			puts 'program started'
 
-			#CopyTags::Copier.new('~/Documents','~/Dropbox').copy_tags
+			copier = CopyTags::Copier.new('~/Documents','~/Dropbox')
+			copier.copyTags
 		end
 	end
 end

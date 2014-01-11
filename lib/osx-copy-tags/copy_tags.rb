@@ -11,7 +11,9 @@ module CopyTags
 		end
 
 		def copyTags
-			if !self.class.checkTagsTool return "Missing tool 'tag'. Please install usinng instruction from http://github.com/jdberry/tag"
+			if !self.class.checkTagsTool 
+				return "Missing tool 'tag'. Please install usinng instruction from http://github.com/jdberry/tag"
+			end
 
 			returnValue = "... starting copying tags from #{@source_folder} to #{@target_folder}"
 			

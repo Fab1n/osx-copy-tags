@@ -2,4 +2,6 @@
 
 require 'osx-copy-tags'
 
-CopyTags::Command.run(ARGV)
+if ARGV
+	CopyTags::Command.run(ARGV)
+end
