@@ -10,9 +10,7 @@ module CopyTags
 		end
 
 		def self.run(argv)
-			puts 'program started'
-
-			copier = CopyTags::Copier.new('~/Documents','~/Dropbox')
+			copier = CopyTags::Copier.new(argv[0],argv[1])
 			copier.copyTags
 		end
 	end

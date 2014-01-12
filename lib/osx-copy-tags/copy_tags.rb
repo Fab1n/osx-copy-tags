@@ -12,14 +12,73 @@ module CopyTags
 
 		def copyTags
 			if !self.class.checkTagsTool 
-				return "Missing tool 'tag'. Please install usinng instruction from http://github.com/jdberry/tag"
+				puts "Missing commandline tool 'tag'. Please install using instruction from http://github.com/jdberry/tag"
+				return
 			end
 
-			returnValue = "... starting copying tags from #{@source_folder} to #{@target_folder}"
-			
-			puts returnValue
+			if !checkFoldersValidity
+				puts "One of the 2 given folders is not a valid directory".red
+				return
+			end
 
-			returnValue
+
+
+			puts = "...starting copying tags from #{@source_folder} to #{@target_folder}"
+
+			copy
+		end
+
+		def checkFoldersValidity
+			if !File.directory?(@source_folder)
+				return false
+			end
+			if !File.directory?(@target_folder)
+				return false
+			end
+			return true
+		end
+
+		def copy
+			@fileCount = 0
+			@errors = 0
+
+			Dir.foreach(@source_folder) do |file|
+				next if file.chr == "."
+				
+				#search matching file in notag folder
+				sourceFilePath = @source_folder+"/#{file}"
+				targetFilePath = @target_folder+"/#{file}"
+
+				tagString = `tag #{sourceFilePath} --no-name`.delete!("\n")
+				if tagString.include? " "
+					tagString[" "] = "\\ "
+				end
+				
+				matching = File.exists?(targetFilePath)
+
+				puts tagString.yellow
+
+				# #if file is found
+				if matching
+					puts "file #{sourceFilePath} matched at target directory".green
+					@fileCount = @fileCount+1
+
+					execString = "tag -s #{tagString} #{targetFilePath}"
+					puts execString
+					puts
+					done = system(execString)
+
+					if !done
+						puts "Could not transfer tags for file: #{file}".red
+						@errors = @errors+1
+					end
+				end
+			end
+
+			puts
+			puts "+++ #{@fileCount} files matched criterium".green
+			puts "+++ #{@errors} errors".red
+
 		end
 
 		def self.checkTagsTool
@@ -27,28 +86,3 @@ module CopyTags
 		end
 	end
 end
-
-# noTagPath = '/Users/rennerfabian/Desktop/noTag'
-# tagPath = '/Users/rennerfabian/Dropbox/noocr'
-
-# @fileCount = 0
-
-# Dir.foreach(tagPath) do |file|
-# 	next if file == '.' or file == '..' or !file.include? '.pdf'
-# 	tagString = `tag #{file} --no-name`
-
-# 	#search matching file in notag folder
-# 	concatPath = tagPath+"/#{file}"
-	
-# 	matching = File.exists?(concatPath)
-
-# 	#if file is found
-# 	if matching
-# 		puts "file |#{concatPath}| exists at target directory"
-# 		fileCount++
-# 		#`tag -a #{concatPath} #{tagString}`
-# 	end
-
-# 	puts
-# 	puts "+++ #{fileCount} files matched criterium"
-# end
