@@ -1,6 +1,10 @@
-# Osx::Copy::Tags
+# osx-copy-tags
 
-TODO: Write a gem description
+With Mavericks OSX has the ability to store tags in files and folders. 
+If you're looking for a solution to replicate (copy) all tags of same named files in a source and a target folder --> Here you are
+
+Usage:
+	copy-tags [sourcefolder] [targetfolder]
 
 ## Installation
 
