@@ -7,18 +7,6 @@ if ARGV.count != 2
 usage: copy-tags [sourcefolder] [targetfolder]
 	EOM
 
-	# Dir.foreach(ARGV[0]) do |file|
-
-	# 	fullpath = ARGV[0]+"/"+file
-
-	# 	next if file.chr == "."
-
-
-	# 	system "tag -r #{fullpath}"
-
-	# 	puts fullpath
-	# end
-
 	if ARGV.count != 0
 		puts "You haven't given the correct argument number!\n".red
 	end

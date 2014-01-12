@@ -49,14 +49,16 @@ module CopyTags
 				sourceFilePath = @source_folder+"/#{file}"
 				targetFilePath = @target_folder+"/#{file}"
 
-				tagString = `tag #{sourceFilePath} --no-name`.delete!("\n")
-				if tagString.include? " "
+				tagString = `tag #{sourceFilePath} --no-name`
+				tagString = tagString.delete!("\n")
+
+				if tagString and tagString.include? " "
 					tagString[" "] = "\\ "
+					puts tagString.yellow
 				end
 				
 				matching = File.exists?(targetFilePath)
 
-				puts tagString.yellow
 
 				# #if file is found
 				if matching
