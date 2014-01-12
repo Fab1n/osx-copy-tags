@@ -3,9 +3,6 @@
 With Mavericks OSX has the ability to store tags in files and folders. 
 If you're looking for a solution to replicate (copy) all tags of same named files from a source to a target folder --> Here you are
 
-Usage:
-
-    copy-tags [sourcefolder] [targetfolder]
 
 ## Installation
 
@@ -23,7 +20,7 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+    copy-tags [sourcefolder] [targetfolder]
 
 ## Contributing
 
