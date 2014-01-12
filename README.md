@@ -1,7 +1,7 @@
 # osx-copy-tags
 
 With Mavericks OSX has the ability to store tags in files and folders. 
-If you're looking for a solution to replicate (copy) all tags of same named files in a source and a target folder --> Here you are
+If you're looking for a solution to replicate (copy) all tags of same named files from a source to a target folder --> Here you are
 
 Usage:
 
